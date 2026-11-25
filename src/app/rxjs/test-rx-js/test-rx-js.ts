@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 @Component({
   selector: 'app-test-rx-js',
   styleUrls: ['./test-rx-js.css'],
@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class TestRxJs {
   myObservable$: Observable<number>;
+  multipleDe3$: Observable<number>;
   toastr = inject(ToastrService);
+  count = 5;
   constructor() {
     this.myObservable$ = new Observable((observer) => {
       let i = 5;
@@ -29,18 +31,31 @@ export class TestRxJs {
         },
       });
 
-    setTimeout(() => {
+    // setTimeout(() => {
       // C'est une deuxième inscription
-      this.myObservable$
+     this.multipleDe3$ =  this.myObservable$
         // 5 4 3 2 1
-        .subscribe({
-          next: (val) => {
-            this.toastr.info('' + val);
-          },
-          complete: () => {
-            this.toastr.error('BOOOOOOM !!!!!');
-          },
-        });
-    }, 3000)
+        .pipe(
+          map(val => val * 3)
+          // 15 12 9 6 3
+        )
+        // .subscribe({
+        //   next: (val) => {
+        //     this.toastr.info('' + val);
+        //   },
+        //   complete: () => {
+        //     this.toastr.error('BOOOOOOM !!!!!');
+        //   },
+        // });
+    // }, 3000)
+        // C'est une première inscription
+    this.myObservable$
+      // 5 4 3 2 1
+      .subscribe({
+        next: (val) => {
+          this.count = val;
+        },
+      });
   }
+
 }
