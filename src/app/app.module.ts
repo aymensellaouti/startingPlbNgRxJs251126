@@ -26,6 +26,7 @@ import { TodoComponent } from './todo/todo/todo.component';
 import { TestRxJs } from './rxjs/test-rx-js/test-rx-js';
 import { OfFromComponent } from './rxjs/of-from/of-from.component';
 import { TimerExamplesComponent } from './rxjs/timer-examples/timer-examples.component';
+import { SliderComponent } from './rxjs/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { TimerExamplesComponent } from './rxjs/timer-examples/timer-examples.com
     LoginComponent,
     TestRxJs,
     OfFromComponent,
-    TimerExamplesComponent
+    TimerExamplesComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -52,8 +54,8 @@ import { TimerExamplesComponent } from './rxjs/timer-examples/timer-examples.com
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
-  ],
+    HttpClientModule
+],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],
 })
