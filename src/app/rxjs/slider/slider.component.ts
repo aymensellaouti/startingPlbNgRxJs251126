@@ -1,6 +1,13 @@
 import { Component, Input } from "@angular/core";
 import { Observable, map, startWith, tap, timer } from "rxjs";
 
+export interface ImageAPi {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -8,6 +15,7 @@ import { Observable, map, startWith, tap, timer } from "rxjs";
 })
 export class SliderComponent {
   @Input() timer = 1500;
+  imageApiLink = "https://jsonplaceholder.typicode.com/photos";
   @Input() imagePaths = [
     'as.jpg',
     'cv.png',
