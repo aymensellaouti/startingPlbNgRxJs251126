@@ -6,9 +6,10 @@ import { ToastrService } from 'ngx-toastr';
 import { APP_ROUTES } from 'src/config/routes.config';
 
 @Component({
-  selector: 'app-add-cv',
-  templateUrl: './add-cv.component.html',
-  styleUrls: ['./add-cv.component.css'],
+    selector: 'app-add-cv',
+    templateUrl: './add-cv.component.html',
+    styleUrls: ['./add-cv.component.css'],
+    standalone: false
 })
 export class AddCvComponent {
   constructor(

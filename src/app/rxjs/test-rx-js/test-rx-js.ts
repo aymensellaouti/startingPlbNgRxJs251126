@@ -2,9 +2,10 @@ import { Component, inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { filter, map, Observable, startWith } from 'rxjs';
 @Component({
-  selector: 'app-test-rx-js',
-  styleUrls: ['./test-rx-js.css'],
-  templateUrl: './test-rx-js.html',
+    selector: 'app-test-rx-js',
+    styleUrls: ['./test-rx-js.css'],
+    templateUrl: './test-rx-js.html',
+    standalone: false
 })
 export class TestRxJs {
   myObservable$: Observable<number>;

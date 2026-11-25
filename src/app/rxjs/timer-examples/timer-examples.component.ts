@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { tap, timer } from 'rxjs';
 
 @Component({
-  selector: 'app-timer-examples',
-  templateUrl: './timer-examples.component.html',
-  styleUrls: ['./timer-examples.component.css'],
+    selector: 'app-timer-examples',
+    templateUrl: './timer-examples.component.html',
+    styleUrls: ['./timer-examples.component.css'],
+    standalone: false
 })
 export class TimerExamplesComponent {
   timerUnique$ = timer(2000).subscribe({

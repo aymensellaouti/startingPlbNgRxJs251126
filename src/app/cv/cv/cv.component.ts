@@ -3,9 +3,10 @@ import { Cv } from "../model/cv";
 import { ToastrService } from "ngx-toastr";
 import { CvService } from "../services/cv.service";
 @Component({
-  selector: 'app-cv',
-  templateUrl: './cv.component.html',
-  styleUrls: ['./cv.component.css'],
+    selector: 'app-cv',
+    templateUrl: './cv.component.html',
+    styleUrls: ['./cv.component.css'],
+    standalone: false
 })
 export class CvComponent {
   cvs: Cv[] = [];

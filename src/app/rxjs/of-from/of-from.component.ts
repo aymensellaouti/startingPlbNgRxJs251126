@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { from, of } from 'rxjs';
 
 @Component({
-  selector: 'app-of-from',
-  templateUrl: './of-from.component.html',
-  styleUrls: ['./of-from.component.css']
+    selector: 'app-of-from',
+    templateUrl: './of-from.component.html',
+    styleUrls: ['./of-from.component.css'],
+    standalone: false
 })
 export class OfFromComponent {
   names = ['aurélien','aymen'];
