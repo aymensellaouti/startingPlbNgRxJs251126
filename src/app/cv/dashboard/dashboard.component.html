@@ -1,9 +1,15 @@
 <p>dashboard works!</p>
 <div class="row">
   <div class="col">
-    Cvs
+    <app-list [cvs]="cvs$ | async"/>
   </div>
   <div class="col">
-    Todos
+    <ol class="list-group">
+      <li
+        *ngFor="let todo of todos$| async"
+        class="list-group list-group-item">
+        {{todo.todo}}
+      </li>
+    </ol>
   </div>
 </div>

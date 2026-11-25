@@ -28,6 +28,7 @@ import { OfFromComponent } from './rxjs/of-from/of-from.component';
 import { TimerExamplesComponent } from './rxjs/timer-examples/timer-examples.component';
 import { SliderComponent } from './rxjs/slider/slider.component';
 import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component';
+import { DashboardComponent } from './cv/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component'
     TimerExamplesComponent,
     SliderComponent,
     AutocompleteComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
