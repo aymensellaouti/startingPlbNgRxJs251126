@@ -23,6 +23,9 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { CvCardComponent } from './cv/cv-card/cv-card.component';
 import { TodoComponent } from './todo/todo/todo.component';
+import { TestRxJs } from './rxjs/test-rx-js/test-rx-js';
+import { OfFromComponent } from './rxjs/of-from/of-from.component';
+import { TimerExamplesComponent } from './rxjs/timer-examples/timer-examples.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { TodoComponent } from './todo/todo/todo.component';
     NavbarComponent,
     NF404Component,
     LoginComponent,
+    TestRxJs,
+    OfFromComponent,
+    TimerExamplesComponent
   ],
   imports: [
     BrowserModule,
