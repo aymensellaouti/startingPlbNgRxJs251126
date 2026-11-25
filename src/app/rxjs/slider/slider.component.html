@@ -1,6 +1,9 @@
 <img
-  src="assets/images/{{paths$ | async}}"
+  [src]="path$ | async"
   [ngStyle]="{ width: 150, height: 150 }"
   class="rounded-circle"
   alt="NF404"
 />
+{{ path$ | async}}
+
+<img src="https://picsum.photos/seed/56/600">
