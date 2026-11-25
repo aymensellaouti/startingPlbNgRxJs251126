@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { filter, map, Observable } from 'rxjs';
+import { filter, map, Observable, startWith } from 'rxjs';
 @Component({
   selector: 'app-test-rx-js',
   styleUrls: ['./test-rx-js.css'],
@@ -8,6 +8,7 @@ import { filter, map, Observable } from 'rxjs';
 })
 export class TestRxJs {
   myObservable$: Observable<number>;
+  startWith5Observable$: Observable<number>;
   multipleDe3$: Observable<number>;
   toastr = inject(ToastrService);
   count = 5;
@@ -22,6 +23,7 @@ export class TestRxJs {
         observer.next(i--);
       }, 1000);
     });
+    this.startWith5Observable$ = this.myObservable$.pipe(startWith(5));
     // C'est une première inscription
     this.myObservable$
       // 5 4 3 2 1
@@ -32,25 +34,25 @@ export class TestRxJs {
       });
 
     // setTimeout(() => {
-      // C'est une deuxième inscription
-     this.multipleDe3$ =  this.myObservable$
-        // 5 4 3 2 1
-        .pipe(
-          map(val => val * 3),
-          // 15 12 9 6 3
-          filter(valMultiplie => valMultiplie % 2 == 0)
-          // 12 6
-        )
-        // .subscribe({
-        //   next: (val) => {
-        //     this.toastr.info('' + val);
-        //   },
-        //   complete: () => {
-        //     this.toastr.error('BOOOOOOM !!!!!');
-        //   },
-        // });
+    // C'est une deuxième inscription
+    this.multipleDe3$ = this.myObservable$
+      // 5 4 3 2 1
+      .pipe(
+        map((val) => val * 3),
+        // 15 12 9 6 3
+        filter((valMultiplie) => valMultiplie % 2 == 0),
+        // 12 6
+      );
+    // .subscribe({
+    //   next: (val) => {
+    //     this.toastr.info('' + val);
+    //   },
+    //   complete: () => {
+    //     this.toastr.error('BOOOOOOM !!!!!');
+    //   },
+    // });
     // }, 3000)
-        // C'est une première inscription
+    // C'est une première inscription
     this.myObservable$
       // 5 4 3 2 1
       .subscribe({
@@ -59,5 +61,4 @@ export class TestRxJs {
         },
       });
   }
-
 }

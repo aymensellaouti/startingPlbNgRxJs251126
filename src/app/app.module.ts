@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -27,6 +27,7 @@ import { TestRxJs } from './rxjs/test-rx-js/test-rx-js';
 import { OfFromComponent } from './rxjs/of-from/of-from.component';
 import { TimerExamplesComponent } from './rxjs/timer-examples/timer-examples.component';
 import { SliderComponent } from './rxjs/slider/slider.component';
+import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SliderComponent } from './rxjs/slider/slider.component';
     TestRxJs,
     OfFromComponent,
     TimerExamplesComponent,
-    SliderComponent
+    SliderComponent,
+    AutocompleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,8 +56,9 @@ import { SliderComponent } from './rxjs/slider/slider.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
-],
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],
 })
