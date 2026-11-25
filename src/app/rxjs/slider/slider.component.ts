@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, inject, Input } from "@angular/core";
+import { Component, inject, Input, ChangeDetectionStrategy } from "@angular/core";
 import { Observable, combineLatest, map, startWith, tap, timer } from "rxjs";
 import { NgStyle, AsyncPipe } from "@angular/common";
 
@@ -14,6 +14,7 @@ export interface ImageAPi {
     selector: 'app-slider',
     templateUrl: './slider.component.html',
     styleUrls: ['./slider.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [NgStyle, AsyncPipe]
 })
 export class SliderComponent {

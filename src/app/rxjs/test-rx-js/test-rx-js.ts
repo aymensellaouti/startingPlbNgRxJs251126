@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { filter, map, Observable, startWith } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
@@ -6,6 +6,7 @@ import { AsyncPipe } from '@angular/common';
     selector: 'app-test-rx-js',
     styleUrls: ['./test-rx-js.css'],
     templateUrl: './test-rx-js.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [AsyncPipe]
 })
 export class TestRxJs {

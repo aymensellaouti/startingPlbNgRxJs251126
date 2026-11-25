@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { API } from 'src/config/api.config';
 import { Cv } from '../model/cv';
 import { forkJoin, map, tap } from 'rxjs';
@@ -26,6 +26,7 @@ export interface TodoApiResponse {
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [ListComponent, AsyncPipe]
 })
 export class DashboardComponent {

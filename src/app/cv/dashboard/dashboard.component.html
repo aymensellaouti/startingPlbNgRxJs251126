@@ -11,7 +11,7 @@
 @if ((vm$ | async)) {
   <div class="row">
     <div class="col">
-      <app-list [cvs]="(vm$ | async)?.cvs"/>
+      <app-list [cvs]="$safeNavigationMigration((vm$ | async)?.cvs)"/>
     </div>
     <div class="col">
       <ol class="list-group">

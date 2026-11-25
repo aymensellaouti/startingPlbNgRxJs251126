@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { tap, timer } from 'rxjs';
 
 @Component({
     selector: 'app-timer-examples',
     templateUrl: './timer-examples.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./timer-examples.component.css']
 })
 export class TimerExamplesComponent {

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Cv } from '../model/cv';
 import { NgStyle } from '@angular/common';
 import { DefaultImagePipe } from '../pipes/default-image.pipe';
@@ -7,6 +7,7 @@ import { DefaultImagePipe } from '../pipes/default-image.pipe';
     selector: 'app-item',
     templateUrl: './item.component.html',
     styleUrls: ['./item.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [NgStyle, DefaultImagePipe]
 })
 export class ItemComponent {
