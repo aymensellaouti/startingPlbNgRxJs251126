@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -30,38 +30,31 @@ import { SliderComponent } from './rxjs/slider/slider.component';
 import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component';
 import { DashboardComponent } from './cv/dashboard/dashboard.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    AddCvComponent,
-    CvComponent,
-    ListComponent,
-    ItemComponent,
-    DetailsCvComponent,
-    CvCardComponent,
-    EmbaucheComponent,
-    DefaultImagePipe,
-    TodoComponent,
-    NavbarComponent,
-    NF404Component,
-    LoginComponent,
-    TestRxJs,
-    OfFromComponent,
-    TimerExamplesComponent,
-    SliderComponent,
-    AutocompleteComponent,
-    DashboardComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule
-  ],
-  providers: [AuthInterceptorProvider],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        AddCvComponent,
+        CvComponent,
+        ListComponent,
+        ItemComponent,
+        DetailsCvComponent,
+        CvCardComponent,
+        EmbaucheComponent,
+        DefaultImagePipe,
+        TodoComponent,
+        NavbarComponent,
+        NF404Component,
+        LoginComponent,
+        TestRxJs,
+        OfFromComponent,
+        TimerExamplesComponent,
+        SliderComponent,
+        AutocompleteComponent,
+        DashboardComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(),
+        AppRoutingModule,
+        ReactiveFormsModule], providers: [AuthInterceptorProvider, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
