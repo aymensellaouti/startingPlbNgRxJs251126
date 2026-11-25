@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { map, Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 @Component({
   selector: 'app-test-rx-js',
   styleUrls: ['./test-rx-js.css'],
@@ -36,8 +36,10 @@ export class TestRxJs {
      this.multipleDe3$ =  this.myObservable$
         // 5 4 3 2 1
         .pipe(
-          map(val => val * 3)
+          map(val => val * 3),
           // 15 12 9 6 3
+          filter(valMultiplie => valMultiplie % 2 == 0)
+          // 12 6
         )
         // .subscribe({
         //   next: (val) => {
