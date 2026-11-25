@@ -1,12 +1,19 @@
 <p>dashboard works!</p>
-<div class="row">
+
+  <div *ngIf="isLoading" class="alert alert-info">
+    Loading....
+  </div>
+
+
+
+<div class="row" *ngIf="(vm$ | async)">
   <div class="col">
-    <app-list [cvs]="cvs$ | async"/>
+    <app-list [cvs]="(vm$ | async)?.cvs"/>
   </div>
   <div class="col">
     <ol class="list-group">
       <li
-        *ngFor="let todo of todos$| async"
+        *ngFor="let todo of (vm$| async)?.todos"
         class="list-group list-group-item">
         {{todo.todo}}
       </li>
