@@ -3,6 +3,8 @@ import { Component, inject } from '@angular/core';
 import { API } from 'src/config/api.config';
 import { Cv } from '../model/cv';
 import { forkJoin, map, tap } from 'rxjs';
+import { ListComponent } from '../list/list.component';
+import { AsyncPipe } from '@angular/common';
 
 export interface TodoApi {
   id: number;
@@ -24,7 +26,7 @@ export interface TodoApiResponse {
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.css'],
-    standalone: false
+    imports: [ListComponent, AsyncPipe]
 })
 export class DashboardComponent {
   httpClient = inject(HttpClient);

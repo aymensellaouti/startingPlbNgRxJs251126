@@ -7,8 +7,7 @@ import { TodoApi } from '../model/todo-api.model';
     selector: 'app-todo',
     templateUrl: './todo.component.html',
     styleUrls: ['./todo.component.css'],
-    providers: [TodoService],
-    standalone: false
+    providers: [TodoService]
 })
 export class TodoComponent {
   @Input()

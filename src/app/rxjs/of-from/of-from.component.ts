@@ -4,8 +4,7 @@ import { from, of } from 'rxjs';
 @Component({
     selector: 'app-of-from',
     templateUrl: './of-from.component.html',
-    styleUrls: ['./of-from.component.css'],
-    standalone: false
+    styleUrls: ['./of-from.component.css']
 })
 export class OfFromComponent {
   names = ['aurélien','aymen'];

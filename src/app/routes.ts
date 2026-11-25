@@ -11,9 +11,10 @@ import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { authenticationGuard } from './auth/guards/authentication.guard';
 import { CvTabsComponent } from './cv/cv-tabs/cv-tabs';
 import { DashboardComponent } from './cv/dashboard/dashboard.component';
+import { HomeComponent } from './components/home/home.component';
 
-const routes: Route[] = [
-  { path: '', redirectTo: 'cv', pathMatch: 'full' },
+export const routes: Route[] = [
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'cv',
@@ -37,8 +38,4 @@ const routes: Route[] = [
   { path: '**', component: NF404Component },
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
+
