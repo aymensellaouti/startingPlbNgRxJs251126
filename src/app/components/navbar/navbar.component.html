@@ -21,11 +21,11 @@
           routerLinkActive="active text-primary">Add Cv</a>
         }
         <a class="nav-link" [routerLink]="['todo']" routerLinkActive="active text-primary">Todo</a>
-        @if (!authService.isAuthenticated()) {
+        @if (authService.isLoggedOut$ | async) {
           <a class="nav-link" [routerLink]="['login']"
           routerLinkActive="active text-primary">Login</a>
         }
-        @if (authService.isAuthenticated()) {
+        @if (authService.isLoggedIn$ | async) {
           <a class="nav-link" (click)="logout()">Logout</a>
         }
       </div>

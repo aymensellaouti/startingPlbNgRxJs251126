@@ -3,13 +3,14 @@ import { AuthService } from '../../auth/services/auth.service';
 import { Router, RouterLinkActive, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { APP_ROUTES } from '../../../config/routes.config';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.css'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    imports: [RouterLinkActive, RouterLink]
+    imports: [RouterLinkActive, RouterLink, AsyncPipe]
 })
 export class NavbarComponent {
   constructor(
