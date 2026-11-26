@@ -8,14 +8,14 @@
 
 
 
-@if ((vm$ | async)) {
+@if ((vm$ | async); as vm) {
   <div class="row">
     <div class="col">
-      <app-list [cvs]="(vm$ | async)?.cvs"/>
+      <app-list [cvs]="vm.cvs"/>
     </div>
     <div class="col">
       <ol class="list-group">
-        @for (todo of (vm$| async)?.todos; track todo) {
+        @for (todo of vm.todos; track todo) {
           <li
             class="list-group list-group-item">
             {{todo.todo}}

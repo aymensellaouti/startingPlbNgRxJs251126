@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { API } from 'src/config/api.config';
 import { Cv } from '../model/cv';
-import { forkJoin, map, tap } from 'rxjs';
+import { forkJoin, map, startWith, tap } from 'rxjs';
 import { ListComponent } from '../list/list.component';
 import { AsyncPipe } from '@angular/common';
 

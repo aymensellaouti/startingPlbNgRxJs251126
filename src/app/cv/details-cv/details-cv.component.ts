@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { APP_ROUTES } from '../../../config/routes.config';
 import { AuthService } from '../../auth/services/auth.service';
-import { Observable } from 'rxjs';
+import { catchError, EMPTY, Observable } from 'rxjs';
 import { AutocompleteComponent } from '../autocomplete/autocomplete.component';
 import { AsyncPipe } from '@angular/common';
 import { DefaultImagePipe } from '../pipes/default-image.pipe';
@@ -23,6 +23,13 @@ export class DetailsCvComponent implements OnInit {
   // Todo : Gérer le cas d'erreur
   cv$: Observable<Cv> = this.cvService.getCvById(
     +this.activatedRoute.snapshot.params['id'],
+  ).pipe(
+    catchError(e => {
+      console.log({e});
+
+      this.router.navigate([APP_ROUTES.cv]);
+      return EMPTY;
+    })
   );
   constructor(
     private cvService: CvService,

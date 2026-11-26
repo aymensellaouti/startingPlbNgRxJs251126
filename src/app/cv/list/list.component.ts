@@ -11,6 +11,6 @@ import { ItemComponent } from '../item/item.component';
     imports: [NgClass, ItemComponent]
 })
 export class ListComponent {
-  @Input() cvs: Cv[] | undefined = [];
+  @Input() cvs: Cv[]  = [];
   @Output() forwardCv = new EventEmitter<Cv>();
 }
