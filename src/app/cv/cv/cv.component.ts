@@ -6,7 +6,7 @@ import { ListComponent } from "../list/list.component";
 import { CvCardComponent } from "../cv-card/cv-card.component";
 import { EmbaucheComponent } from "../embauche/embauche.component";
 import { UpperCasePipe, DatePipe, AsyncPipe } from "@angular/common";
-import { catchError, Observable, of } from "rxjs";
+import { catchError, Observable, of, retry } from "rxjs";
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
@@ -23,10 +23,15 @@ import { catchError, Observable, of } from "rxjs";
 })
 export class CvComponent {
   cvs: Cv[] = [];
-  selectedCv: Cv | null = null;
+
+  selectedCv$ = this.cvService.selectedCv$;
   date = new Date();
   // Todo : Transformer l'inscription en un flux et gérer l'erreur avec l'opérateur catchError
   cvs$: Observable<Cv[]> = this.cvService.getCvs().pipe(
+    retry({
+      count: 3,
+      delay:1000
+    }),
     catchError(e => {
       this.toastr.error(`
         Attention!! Les données sont fictives, problème avec le serveur.
@@ -51,7 +56,4 @@ export class CvComponent {
     });
   }
 
-  getSelectedCv(cv: Cv) {
-    this.selectedCv = cv;
-  }
 }

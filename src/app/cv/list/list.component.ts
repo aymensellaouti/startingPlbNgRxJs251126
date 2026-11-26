@@ -12,5 +12,5 @@ import { ItemComponent } from '../item/item.component';
 })
 export class ListComponent {
   @Input() cvs: Cv[]  = [];
-  @Output() forwardCv = new EventEmitter<Cv>();
+
 }

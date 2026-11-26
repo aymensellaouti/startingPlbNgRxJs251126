@@ -17,6 +17,10 @@ export class CvService {
     ];
   }
 
+  // Nous crée un flux chaud qui est le flux des cvs
+  #selectedCv$ = new Subject<Cv>();
+
+  selectedCv$ = this.#selectedCv$.asObservable();
   /**
    *
    * Retourne un liste fictive de cvs
@@ -114,5 +118,12 @@ export class CvService {
     const search = `{"where":{"${property}":"${value}"}}`;
     const params = new HttpParams().set('filter', search);
     return this.http.get<Cv[]>(API.cv, { params });
+  }
+
+  /**
+   * Permettre d'ajouter le cv sélectionné au flux des sélectionnés
+   */
+  selectCv(cv: Cv) {
+    this.#selectedCv$.next(cv);
   }
 }
