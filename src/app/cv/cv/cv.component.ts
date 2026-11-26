@@ -7,6 +7,7 @@ import { CvCardComponent } from "../cv-card/cv-card.component";
 import { EmbaucheComponent } from "../embauche/embauche.component";
 import { UpperCasePipe, DatePipe, AsyncPipe } from "@angular/common";
 import { catchError, Observable, of, retry } from "rxjs";
+import { TestRxJs } from "src/app/rxjs/test-rx-js/test-rx-js";
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
@@ -18,8 +19,9 @@ import { catchError, Observable, of, retry } from "rxjs";
     EmbaucheComponent,
     UpperCasePipe,
     DatePipe,
-    AsyncPipe
-  ],
+    AsyncPipe,
+    TestRxJs
+],
 })
 export class CvComponent {
   cvs: Cv[] = [];

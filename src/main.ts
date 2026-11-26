@@ -14,7 +14,7 @@ import { routes } from "./app/routes";
 
 bootstrapApplication(AppComponent, {
     providers: [
-        provideZoneChangeDetection(),
+        //provideZoneChangeDetection(),
         importProvidersFrom(BrowserModule, FormsModule, ToastrModule.forRoot(), ReactiveFormsModule),
         AuthInterceptorProvider, provideHttpClient(withXhr(), withInterceptorsFromDi()),
         provideRouter(routes)
