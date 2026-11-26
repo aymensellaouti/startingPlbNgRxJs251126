@@ -20,6 +20,7 @@ import { DefaultImagePipe } from '../pipes/default-image.pipe';
 export class DetailsCvComponent implements OnInit {
   cv: Cv | null = null;
   activatedRoute = inject(ActivatedRoute);
+  // Todo : Gérer le cas d'erreur
   cv$: Observable<Cv> = this.cvService.getCvById(
     +this.activatedRoute.snapshot.params['id'],
   );

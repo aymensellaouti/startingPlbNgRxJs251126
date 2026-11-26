@@ -6,6 +6,7 @@ import { ListComponent } from "../list/list.component";
 import { CvCardComponent } from "../cv-card/cv-card.component";
 import { EmbaucheComponent } from "../embauche/embauche.component";
 import { UpperCasePipe, DatePipe } from "@angular/common";
+import { Observable } from "rxjs";
 @Component({
     selector: 'app-cv',
     templateUrl: './cv.component.html',
@@ -17,7 +18,8 @@ export class CvComponent {
   cvs: Cv[] = [];
   selectedCv: Cv | null = null;
   date = new Date();
-
+  // Todo : Transformer l'inscription en un flux et gérer l'erreur avec l'opérateur catchError
+  cvs$!: Observable<Cv[]>;
   constructor(
     private toastr: ToastrService,
     private cvService: CvService
