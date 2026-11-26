@@ -16,6 +16,8 @@
         routerLinkActive="active text-primary">Cv Tabs</a>
         <a class="nav-link" [routerLink]="['dashboard']"
         routerLinkActive="active text-primary">Dashboard</a>
+        <a class="nav-link" [routerLink]="['products']"
+        routerLinkActive="active text-primary">Products</a>
         @if (authService.isAuthenticated()) {
           <a class="nav-link" [routerLink]="['cv/add']"
           routerLinkActive="active text-primary">Add Cv</a>

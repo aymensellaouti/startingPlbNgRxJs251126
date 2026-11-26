@@ -12,10 +12,12 @@ import { authenticationGuard } from './auth/guards/authentication.guard';
 import { CvTabsComponent } from './cv/cv-tabs/cv-tabs';
 import { DashboardComponent } from './cv/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProductsComponent } from './products/products.component';
 
 export const routes: Route[] = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'products', component: ProductsComponent },
   {
     path: 'cv',
     component: CvComponent,
