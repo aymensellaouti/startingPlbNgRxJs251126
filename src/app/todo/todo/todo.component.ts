@@ -1,7 +1,26 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { Todo } from '../model/todo';
+import { Component, Input, ChangeDetectionStrategy, inject } from '@angular/core';
+
 import { TodoService } from '../service/todo.service';
-import { TodoApi } from '../model/todo-api.model';
+
+import { HttpClient, httpResource } from '@angular/common/http';
+import { API } from 'src/config/api.config';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
+
+export interface TodoApiResponse {
+  todos: Todo[];
+  total: number;
+  skip: number;
+  limit: number;
+}
+
+export interface Todo {
+  id: number;
+  todo: string;
+  completed: boolean;
+  userId: number;
+}
+
 
 @Component({
     selector: 'app-todo',
@@ -11,6 +30,13 @@ import { TodoApi } from '../model/todo-api.model';
     providers: [TodoService]
 })
 export class TodoComponent {
-  @Input()
-  todos: TodoApi[] | null  = [];
+  // @Input()
+  // todos: Todo[] | null  = [];
+  httpClient = inject(HttpClient)
+ // todoRessource = httpResource<TodoApiResponse>(()=>API.todo);
+  todoRessource = rxResource({
+    stream: () => this.httpClient.get<TodoApiResponse>(API.todo).pipe(map(response => response.todos)),
+    defaultValue: []
+  });
+
 }

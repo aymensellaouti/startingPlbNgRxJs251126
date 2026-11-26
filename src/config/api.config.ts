@@ -1,6 +1,6 @@
 export const API = {
   cv: 'https://apilb.tridevs.net/api/personnes/',
   login: 'https://apilb.tridevs.net/api/Users/login',
-  todo: 'https://dummyjson.com/todos',
+  todo: 'https://dummyjson.com/todos/',
   products: 'https://dummyjson.com/products',
 };

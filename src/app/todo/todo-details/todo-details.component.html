@@ -1,0 +1,10 @@
+<p>todo-details works!</p>
+
+@if(id() > 1){
+  <button (click)="id.update(old => old - 1)" class="btn btn-danger">Prev</button>
+}
+<button (click)="id.update(old => old + 1)" class="btn btn-success">Next</button>
+
+<div class="alert alert-primary">
+  {{todoRessource.value()?.todo}}
+</div>

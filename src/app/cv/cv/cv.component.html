@@ -3,9 +3,15 @@
     <div class="alert alert-warning">
       {{ date | date : "full" | uppercase }}
     </div>
-    @if (cvs$ | async; as cvs) {
-      <app-list [cvs]="cvs"></app-list>
-    }
+    <!-- @if (cvs$ | async; as cvs) { -->
+     @if (isLoading()) {
+       <div class="alert alert-info">
+        Loading...
+       </div>
+     } @else {
+       <app-list [cvs]="cvs()"></app-list>
+     }
+    <!-- } -->
   </div>
   <div class="col">
     <app-cv-card [cv]="selectedCv$ | async"></app-cv-card>
@@ -13,4 +19,4 @@
 </div>
 <app-embauche></app-embauche>
 <!-- <app-timer-examples/> -->
-<app-test-rx-js />
+<!-- <app-test-rx-js /> -->
